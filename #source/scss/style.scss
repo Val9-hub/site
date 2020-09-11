@@ -1,0 +1,603 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+	font-family: 'AkzidenzGrotesk-BoldCond';
+	src: url('fonts/AkzidenzGrotesk-BoldCond.eot');
+	src: local('☺'), url('../../fonts/AkzidenzGroteskBQ-BdCnd/fonts/AkzidenzGrotesk-BoldCond.woff') format('woff'), url('fonts/AkzidenzGrotesk-BoldCond.ttf') format('truetype'), url('fonts/AkzidenzGrotesk-BoldCond.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "PT Sans";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 880;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+body {
+	color: #000;
+	font-size: 14px;
+	&.lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	&.loaded {
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+	@media (max-width: $md4+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "datepicker.scss";
+//@import "fontawesome.scss";
+//@import "popover.min.scss";
+//@import "baguetteBox.scss";
+//@import "pagging.scss";
+//@import "icons.scss";
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.private {
+
+	@include flexbox();
+	
+	background-color: #000000;
+	&__column{
+		z-index: 0;
+		@include flexbox();
+		flex: 0 0 50%;
+		@media (max-width: $md3+px){
+		flex: 1 1 100%;
+		&:first-child{
+			display: none;
+		}
+
+		}
+	}
+	&__img {
+		flex: 1 1 auto;
+		z-index: 0;
+		height: 100%;
+		
+		
+		}
+	
+	&__right {}
+}
+.private-item {
+	padding: 78px 0px 88px 62px;
+	@media (max-width:$md2+px){
+		padding: 58px 0px 68px 42px;
+	}
+	@media (max-width: $md4+px){
+		padding: 38px 0px 38px 12px;
+	
+	}
+	&__title {
+		color: #ffffff;
+		font-family: "AkzidenzGrotesk-BoldCond";
+		font-size: 50px;
+		font-weight: 400;
+		line-height: 50px;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		@media (max-width:$md2+px){
+			font-size: 30px;
+			line-height: 30px;
+			letter-spacing: 4.5px;
+		}
+		@media (max-width: $md4+px){
+			font-size: 22px;
+			line-height: 22px;
+			letter-spacing: 4px;
+		}
+	}
+	&__text {
+		margin: 25px 0px 60px 0px;
+		max-width: 305px;
+		color: #d7d7d7;
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 25px;
+		@media (max-width:$md2+px){
+			line-height: 15px;
+			font-size: 15px;
+			margin: 20px 0px 40px 0px;
+		}
+		@media (max-width: $md4+px){
+			line-height: 12px;
+			font-size: 12px;
+			margin: 20px 0px 40px 0px;
+		}
+	}
+	&__buttons {}
+	&__buttom {
+		padding: 14px 13px ;
+		width: 92px;
+		height: 16px;
+		color: #fffffe;
+		font-family: Bebas Neue;
+		font-size: 19px;
+		font-weight: 400;
+		line-height: 25px;
+		text-decoration: underline;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		@media (max-width: $md3+px){
+			width: 62px;
+			height: 9px;
+			font-size: 15px;
+		}
+		@media (max-width: $md4+px){
+			width: 42px;
+			height: 7px;
+			font-size: 13px;
+		}
+		&_white {
+			background-color: #fff;
+			padding: 14px 33px ;
+			width: 92px;
+			height: 16px;
+			color: #000000;
+			font-family: Bebas Neue;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 25px;
+			text-transform: uppercase;
+			text-decoration: none;
+			letter-spacing: 1.5px;
+			@media (max-width: $md3+px){
+			width: 42px;
+			height: 7px;
+			font-size: 13px;
+		}
+		@media (max-width: $md4+px){
+
+		}
+		}
+	}
+}
+.ibg{
+	z-index: 0;
+}
+//====================================================================================================
+.catalog {
+	
+	padding: 77px 0px;
+	
+	overflow: hidden;
+	@media (max-width: $md2+px){
+		padding: 47px 0px;
+	}
+	@media (max-width: $md4+px){
+		padding: 27px 0px;
+	}
+	&__row {
+		@include flexbox();
+		flex: 0 0 25%;
+		justify-content: center;
+		@media (max-width: $md2+px){
+			flex-wrap:wrap;
+		}
+
+	}
+	&__column {
+		@include flexbox();
+		flex-direction: column;
+		max-width: 220px;
+	}
+}
+.item-catalog {
+	
+	&__image {}
+	&__title {
+
+		margin: 25px 87px 26px 7px;
+		color: #000000;
+		font-family: "AkzidenzGrotesk-BoldCond";
+		font-size: 25px;
+		font-weight: 400;
+		line-height: 25px;
+		text-transform: uppercase;
+		letter-spacing: 2.5px;
+		@media (max-width: $md2+px){
+			font-size: 20px;
+			line-height: 20px;
+			margin: 20px 77px 20px 4px;
+			letter-spacing: 2.2px;
+		}
+		@media (max-width: $md4+px){
+			font-size: 15px;
+			line-height: 15px;
+			margin: 10px 47px 10px 2px;
+			letter-spacing: 1.2px;
+		}
+	}
+	&__text {
+		flex: 1 1 auto;
+		margin: 0px 25px 26px 7px;
+		color: #000000;
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 25px;
+		@media (max-width: $md2+px){
+			margin: 0px 20px 21px 4px;
+			font-size: 13px;
+			line-height: 23px;
+		}
+		@media (max-width: $md4+px){
+			margin: 0px 10px 11px 2px;
+			font-size: 12px;
+			line-height: 19px;
+		}
+	}
+	&__button {
+		margin: 0px 0px 0px 5px;
+		padding: 17px 0px;
+		text-align: center;
+		width: 155px;
+		height: 50px;
+		background-color: #000000;
+		font-family: Bebas Neue;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 18px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		@media (max-width: $md4+px){
+			width: 115px;
+			height: 40px;
+			margin: 0px 0px 0px 3px;
+			font-size: 15px;
+			line-height: 15px;
+			padding: 14px 0px;
+		}
+		&_white {
+			margin: 10px 0px 0px 5px;
+			padding: 17px 0px;
+			width: 155px;
+			height: 50px;
+			text-decoration: underline;
+			background-color: #ffffff;
+			font-family: Bebas Neue;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 18px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			@media (max-width: $md4+px){
+			width: 115px;
+			height: 40px;
+			margin: 0px 0px 0px 3px;
+			font-size: 15px;
+			line-height: 15px;
+			padding: 14px 0px;
+		}
+		}
+	}
+	&__button a{
+		color: #ffffff;
+	}
+	&__button {
+		&_white a{
+			color: #000000;
+		}
+	}
+}
+//====================================================================================================
+.why {
+}
+.why-header {
+	background: #000000;
+	@include flexbox();
+	&__column {
+		flex: 0 0 50%;
+	}
+	&__title {
+		text-align: right;
+		padding: 50px 55px 50px 0px;
+		color: #ffffff;
+		font-family: "AkzidenzGrotesk-BoldCond";
+		font-size: 50px;
+		font-weight: 400;
+		line-height: 50px;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		@media (max-width: $md2+px){
+			padding: 30px 35px 30px 3px;
+			font-size: 30px;
+			line-height: 30px;
+			letter-spacing: 3px;
+		}
+		@media (max-width: $md3+px){
+			padding: 20px 25px 20px 3px;
+			font-size: 25px;
+			line-height: 25px;
+			letter-spacing: 2.5px;
+		}
+		@media (max-width: $md4+px){
+			padding: 15px 5px 15px 3px;
+			font-size: 19px;
+			line-height: 25px;
+			letter-spacing: 2px;
+		}
+	}
+	&__image {
+		height: 100%;
+	}
+}
+.why-body {
+	background-color: #ebebeb;
+	&__row {
+		padding: 50px 0px 0px 0px;
+		@include flexbox();
+		flex-wrap:wrap;
+		@media (max-width: $md2+px){
+			padding: 30px 0px 0px 0px;
+		}
+		@media (max-width: $md4+px){
+			padding: 15px 0px 0px 0px;
+		}
+	}
+	&__column {
+		@include flexbox();
+		flex: 0  0 50%;
+		margin: 0px 0px 50px 0px;
+		flex: 1 1 auto;
+		@media (max-width: $md2+px){
+			margin: 0px 0px 30px 0px;
+			justify-content: center;
+		}
+		@media (max-width: $md4+px){
+			margin: 0px 0px 15px 0px;
+		}
+	}
+	&__image {
+		
+	}
+	&__subrow {
+		margin: 0px 0px 0px 12px;
+	
+	}
+	&__title {
+		margin: 0px 0px 25px 0px;
+		color: #000000;
+		font-family: "AkzidenzGrotesk-BoldCond";
+		font-size: 25px;
+		font-weight: 400;
+		line-height: 25px;
+		text-transform: uppercase;
+		letter-spacing: 2.5px;
+		@media (max-width: $md2+px){
+			font-size: 20px;
+			line-height: 20px;
+			letter-spacing: 2.2px;
+		}
+		@media (max-width: $md3+px){
+			font-size: 18px;
+			line-height: 18px;
+			letter-spacing: 2px;
+		}
+		@media (max-width: $md4+px){
+			font-size: 16px;
+			line-height: 16px;
+			letter-spacing: 2px;
+		}
+	}
+	&__text {
+		color: #000000;
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 25px;
+		max-width: 300px;
+		flex: 1 1 auto;
+		@media (max-width: $md2+px){
+			font-size: 13px;
+			line-height: 23px;
+		}
+	}
+}
+//====================================================================================================
+
+.contacts {
+
+	padding: 82px 0px 0px 0px;
+	@media (max-width: $md3+px){
+		padding: 32px 0px 0px 0px;
+	}
+	&__header {}
+	&__title {
+		margin: 0px 0px 28px 0px;
+		color: #000000;
+		font-family: "AkzidenzGrotesk-BoldCond";
+		font-size: 50px;
+		line-height: 45px;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		@media (max-width: $md3+px){
+			margin: 0px 0px 18px 0px;
+			font-size: 30px;
+			line-height: 30px;
+			letter-spacing: 4px;
+		}
+	}
+	&__row {
+		@include flexbox();
+		flex-wrap:wrap;
+	}
+	&__column {
+		@include flexbox();
+		flex: 0  0 50%;
+		margin: 0px 0px 25px 0px;
+		align-items: center;
+		@media (max-width: $md3+px){
+			flex: 0  0 100%;
+			margin: 0px 0px 20px 0px;
+		}
+	}
+	&__icon {
+		margin: 0px 8px 0px 0px;
+	}
+	&__icon-link {
+		margin: 0px 31px 0px 0px;
+	}
+	&__text a{
+		color: #000000;
+		font-size: 15px;
+		line-height: 25px;
+		@media (max-width: $md3+px){
+			font-size: 13px;
+			line-height: 20px;
+		}
+	}
+	&__body {
+		background-color: #000000;
+		
+	}
+}
+.item-contacts {
+	@include flexbox();
+	@media (max-width: $md2+px){
+	display: block;
+	}
+	&__column {
+		flex: 0  0 50%;
+	}
+	&__map {
+		height: 100%;
+		@media (max-width: $md2+px){
+			height: 300px;
+		}
+	}
+	&__right {
+		padding: 54px 0px 50px 60px ;
+		@media (max-width: $md3+px){
+			padding: 20px 0px 30px 30px ;
+		}
+	}
+	&__title {
+		margin: 0px 0px 28px 0px;
+		color: #ffffff;
+		font-family: "AkzidenzGrotesk-BoldCond";
+		font-size: 25px;
+		line-height: 25px;
+		text-transform: uppercase;
+		letter-spacing: 2.5px;
+		@media (max-width: $md3+px){
+			margin: 0px 0px 18px 0px;
+			font-size: 20px;
+			line-height: 20px;
+		}
+	}
+	&__form {}
+	&__line {}
+	&__button {
+		
+	}
+	&__btn {
+		color: #000000;
+		font-family: Bebas Neue;
+		font-size: 19px;
+		line-height: 19px;
+		text-transform: uppercase;
+		letter-spacing: 1.8px;
+		padding: 15px 25px;
+	}
+}
+.input {
+	margin: 0px 0px 25px 0px;
+	background-color: #252525;
+	border: 2px solid #959595 ;
+	color: #8c8c8c;
+	width: 374px;
+	@media (max-width: $md4+px){
+		margin: 0px 0px 20px 0px;
+		width: 274px;
+	}
+	
+}
+.input1 {
+	padding: 10px 0px 0px 15px;
+	width: 374px;
+	height: 100px;
+	margin: 0px 0px 25px 0px;
+	background-color: #252525;
+	border: 2px solid #959595 ;
+	color: #8c8c8c;
+	@media (max-width: $md4+px){
+		width: 274px;
+		margin: 0px 0px 20px 0px;
+	}
+}
+.req {
+
+	height: 50px;
+}
+.btn {
+	&_w {}
+}
+
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================

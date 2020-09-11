@@ -1,0 +1,33 @@
+.footer {
+	padding: 34px 0px 27px 0px;
+	&__row {
+		@include flexbox(); 
+		justify-content:space-between;
+		@media (max-width: $md4+px){
+			align-items: center;
+		}
+	}
+	&__text {
+		color: #4d4d4d;
+		font-size: 15px;
+		line-height: 25px;
+		@media (max-width: $md4+px){
+			font-size: 12px;
+			line-height: 12px;
+		}
+	}
+	&__text a{
+		text-decoration: underline;
+		color: #4d4d4d;
+	}
+	&__logo {
+
+	}
+}
+.container {
+}
+
+//====================================================================================================
+
+//====================================================================================================
+
